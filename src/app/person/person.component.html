@@ -1,0 +1,157 @@
+<form [formGroup]="personform" (ngSubmit)="submit()">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h1>Person Form</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" name="fname" matInput value="" >
+                    <mat-error
+                        *ngIf="personform.controls['FirstName']!.errors!=null && personform.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="col-md-3">
+
+
+
+                <mat-form-field appearance="fill">
+                    <mat-label>MiddleName</mat-label>
+                    <input formControlName="MiddleName" name="mname" matInput value="">
+                    <mat-error
+                        *ngIf="personform.controls['MiddleName']!.errors!=null && personform.controls['MiddleName']!.errors!['required']">
+                        <span>MiddleName is required</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>LastName</mat-label>
+                    <input formControlName="LastName" name="lname" matInput value="">
+                    <mat-error
+                        *ngIf="personform.controls['LastName']!.errors!=null && personform.controls['LastName']!.errors!['required']">
+                        <span>LastName is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Department</mat-label>
+                    <select matNativeControl formControlName="Department" name="dept" value="">
+
+
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="payroll">payroll</option>
+                        <option value="networking">Networking</option>
+                        <option value="Admin">Admin</option>
+
+                    </select>
+                    <mat-error
+                        *ngIf="personform.controls['Department']!.errors!=null && personform.controls['Department']!.errors!['required']">
+                        <span>Department is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Gender</mat-label>
+                    <select matNativeControl formControlName="Gender" name="gender" value="">
+
+
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+
+
+                    </select>
+                    <mat-error
+                        *ngIf="personform.controls['Gender']!.errors!=null && personform.controls['Gender']!.errors!['required']">
+                        <span>Gender is required</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Pincode</mat-label>
+                    <input formControlName="Pincode" name="Pincode" matInput value="">
+                    <mat-error
+                        *ngIf="personform.controls['Pincode']!.errors!=null && personform.controls['Pincode']!.errors!['required']">
+                        <span>Pincode is required</span>
+                    </mat-error>
+                    <mat-error
+                        *ngIf=" personform.controls['Pincode']!.errors!=null && personform.get('Pincode')!.errors!['maxLength'] ">
+                        <span>Pincode should not be greater than 6</span>
+                    </mat-error>
+
+
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input formControlName="Address" name="address" matInput value="">
+                    <mat-error
+                        *ngIf="personform.controls['Address']!.errors!=null && personform.controls['Address']!.errors!['required']">
+                        <span>Address is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input matInput required [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+
+                </mat-form-field>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+
+
+                           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <button type="submit" mat-raised-button color="primary">Submit</button>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
